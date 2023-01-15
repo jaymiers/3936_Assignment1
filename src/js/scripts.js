@@ -13,6 +13,25 @@ class Car {
     year;
     odometer = 0;
     engine;
+
+    //Method: Start Engine
+
+    //Method: Stop Engine
+
+    //Method: Drive
+}
+
+let myEngine = new Engine();
+
+class Engine{
+    constructor(CylinderCount)
+    {
+        this.CylinderCount = CylinderCount;
+    }
+
+    CylinderCount;
+    IsRunning = false;
+
 }
 
 
@@ -22,6 +41,7 @@ class Car {
 
 
 async function main() {
+   
     
 }
 
