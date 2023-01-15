@@ -1,14 +1,28 @@
-async function main() {
-    // This is where the code you're actually experimenting with goes.
-    
-    let prompt = "Please enter your name, or 'Exit' to quit: "
-    let name = await input(prompt);
 
-    while (name != "Exit") 
+class Car {
+    constructor(make, model, year)
     {
-        output("Hello, "+name+"!");
-        name = await input(prompt);
+        this.make = make;
+        this.model = model;
+        this.year = year;
+
     }
+
+    make;
+    model;
+    year;
+    odometer = 0;
+    engine;
+}
+
+
+
+
+
+
+
+async function main() {
+    
 }
 
 
