@@ -1,10 +1,12 @@
 
 class Car {
-    constructor(make, model, year)
+    constructor(make, model, year, odometer, engine = new Engine())
     {
         this.make = make;
         this.model = model;
         this.year = year;
+        this.odometer = odometer;
+        this.engine = engine;
 
     }
 
@@ -14,14 +16,28 @@ class Car {
     odometer = 0;
     engine;
 
+    //Format Make to String
+    set make(make) {
+        this.make = make.toString;
+    }
+
+    //Format Model to String
+    set model(model) {
+        this.model = model.toString;
+    }
+
+    //Format Year to Number
+    set year(year){
+        this.year = parseInt(year);
+    }
+
     //Method: Start Engine
+    
 
     //Method: Stop Engine
 
     //Method: Drive
 }
-
-let myEngine = new Engine();
 
 class Engine{
     constructor(CylinderCount)
@@ -42,7 +58,7 @@ class Engine{
 
 async function main() {
    
-    
+
 }
 
 
