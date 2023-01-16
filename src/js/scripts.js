@@ -2,9 +2,9 @@
 class Car {
     constructor(make, model, year, odometer, engine = new Engine())
     {
-        this._make = make;
-        this._model = model;
-        this._year = year;
+        this._make = "T8";
+        this._model = "Kia Rondo";
+        this._year = 2008;
         this._odometer = odometer;
         this.engine = engine;
     }
@@ -72,7 +72,6 @@ class Car {
         if (Engine.IsRunning = true) {
             let newOdometer = this.odometer + distance;
             this.odometer = newOdometer;
-            output(this.odometer);
         }
         else{
             throw new Error("Engine must be running to drive!");
@@ -103,6 +102,12 @@ async function main() {
     myCar.startEngine();
     myCar.Drive(50);
     myCar.stopEngine();
+    output(myCar.odometer);
+
+    //Converting to JSON
+    let jsonText = JSON.stringify(myCar);
+    output("Your JSON output is: " + jsonText);
+
 
 }
 
