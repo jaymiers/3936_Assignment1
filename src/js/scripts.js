@@ -5,7 +5,7 @@ class Car {
         this._make = make;
         this._model = model;
         this._year = year;
-        this.odometer = odometer;
+        this._odometer = odometer;
         this.engine = engine;
     }
 
@@ -42,6 +42,16 @@ class Car {
         return this.#year;
     }
 
+    //Format Odometer to Number
+    #odometer;
+    set odometer(odometer){
+        this._odometer = parseInt(odometer);
+    }
+
+    get odometer() {
+        return this.#odometer;
+    }
+
     //Method: Start Engine
     startEngine() {
         output (`Attempting to Start Engine.` , "debug");
@@ -62,6 +72,7 @@ class Car {
         if (Engine.IsRunning = true) {
             let newOdometer = this.odometer + distance;
             this.odometer = newOdometer;
+            output(this.odometer);
         }
         else{
             throw new Error("Engine must be running to drive!");
@@ -79,12 +90,8 @@ class Engine{
     CylinderCount;
     IsRunning = false;
 
+
 }
-
-
-
-
-
 
 
 async function main() {
@@ -92,7 +99,6 @@ async function main() {
     let myCar = new Car();
     myCar.startEngine();
     myCar.Drive(100);
-    output(this.odometer);
     myCar.stopEngine();
     myCar.startEngine();
     myCar.Drive(50);
