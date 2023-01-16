@@ -2,37 +2,53 @@
 class Car {
     constructor(make, model, year, odometer, engine = new Engine())
     {
-        this.make = make;
-        this.model = model;
-        this.year = year;
+        this._make = make;
+        this._model = model;
+        this._year = year;
         this.odometer = odometer;
         this.engine = engine;
-
     }
 
-    make;
-    model;
-    year;
     odometer = 0;
     engine;
 
     //Format Make to String
+    #make;
     set make(make) {
-        this.make = make.toString;
+        this._make = make.toString;
+    }
+
+    get make() {
+        return this.#make;
     }
 
     //Format Model to String
+    #model;
     set model(model) {
-        this.model = model.toString;
+        this._model = model.toString;
+    }
+
+    get model() {
+        return this.#model;
     }
 
     //Format Year to Number
+    #year;
     set year(year){
-        this.year = parseInt(year);
+        this._year = parseInt(year);
+    }
+
+    get year() {
+        return this.#year;
     }
 
     //Method: Start Engine
-    
+    startEngine() {
+        output (`Attempting to Start Engine.` , "debug");
+        Engine.IsRunning = true;
+        output (`Engine Started` , "debug");
+    }
+
 
     //Method: Stop Engine
 
@@ -40,9 +56,10 @@ class Car {
 }
 
 class Engine{
-    constructor(CylinderCount)
+    constructor(CylinderCount, IsRunning)
     {
         this.CylinderCount = CylinderCount;
+        this.IsRunning = IsRunning;
     }
 
     CylinderCount;
@@ -58,6 +75,13 @@ class Engine{
 
 async function main() {
    
+    let myCar = new Car();
+    myCar.startEngine();
+    myCar.Drive(100);
+    myCar.StopEngine();
+    myCar.StartEngine();
+    myCar.Drive(50);
+    myCar.StopEngine();
 
 }
 
