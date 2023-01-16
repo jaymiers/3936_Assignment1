@@ -49,8 +49,12 @@ class Car {
         output (`Engine Started` , "debug");
     }
 
-
     //Method: Stop Engine
+    stopEngine() {
+        output (`Attempting to Stop Engine.` , "debug");
+        Engine.IsRunning = false;
+        output (`Engine Stopped` , "debug");
+    }
 
     //Method: Drive
 }
@@ -77,11 +81,11 @@ async function main() {
    
     let myCar = new Car();
     myCar.startEngine();
-    myCar.Drive(100);
-    myCar.StopEngine();
-    myCar.StartEngine();
+    
+    myCar.stopEngine();
+    myCar.startEngine();
     myCar.Drive(50);
-    myCar.StopEngine();
+    myCar.stopEngine();
 
 }
 
