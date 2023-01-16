@@ -57,6 +57,16 @@ class Car {
     }
 
     //Method: Drive
+    Drive(distance){
+        output(`Driving!`, "debug");
+        if (Engine.IsRunning = true) {
+            let newOdometer = this.odometer + distance;
+            this.odometer = newOdometer;
+        }
+        else{
+            throw new Error("Engine must be running to drive!");
+        }
+    }
 }
 
 class Engine{
@@ -81,7 +91,8 @@ async function main() {
    
     let myCar = new Car();
     myCar.startEngine();
-    
+    myCar.Drive(100);
+    output(this.odometer);
     myCar.stopEngine();
     myCar.startEngine();
     myCar.Drive(50);
